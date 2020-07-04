@@ -1,1 +1,25 @@
-<p>pokemon-body works!</p>
+<h2>Pokemons</h2>
+<div *ngIf="!toggleService.cardsView">
+  <ul class="heroes">
+    <li *ngFor="let pokemon of pokemons">
+      <span>{{ pokemon.name }} </span>
+      <span>{{ pokemon.id }} </span>
+      <span>{{ pokemon.damage }} </span>
+      <span>{{ pokemon.captured }} </span>
+      <button (click)="onCapture(pokemon)">{{ pokemon.captured ? 'Release' : 'Capture' }}</button>
+      <button (click)="onDamage(pokemon)">Damage</button>
+    </li>
+  </ul>
+</div>
+<div *ngIf="toggleService.cardsView">
+  <div class="pokemon--card" *ngFor="let pokemon of pokemons" [ngClass]="pokemon.damage >= 50 ? 'card_red' : ''">
+    <span>{{ pokemon.name }} </span>
+    <img [src]="getPath(pokemon)">
+    <span>{{ pokemon.id }} </span>
+    <span>{{ pokemon.damage }} </span>
+    <span>{{ pokemon.captured }} </span>
+    <button (click)="onCapture(pokemon)">{{ pokemon.captured ? 'Release' : 'Capture' }}</button>
+    <button (click)="onDamage(pokemon)">Damage</button>
+  </div>
+
+</div>

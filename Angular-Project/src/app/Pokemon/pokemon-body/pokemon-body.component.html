@@ -12,7 +12,7 @@
   </ul>
 </div>
 <div *ngIf="toggleService.cardsView" class="container-fluid row justify-content-around">
-  <div class="pokemon--card col-4" *ngFor="let pokemon of pokemons" [ngClass]="pokemon.damage > 50 ? 'card_red' : ''">
+  <div class="pokemon--card col-3" *ngFor="let pokemon of pokemons" [ngClass]="pokemon.damage > 50 ? 'card_red' : ''">
     <span class="pokemon--name col-12 row mg-h-auto">{{ pokemon.name | uppercase }} </span>
     <div class="pokemon--image-container col-12 row mg-h-auto">
       <img [src]="getPath(pokemon)" class="pokemon--image">

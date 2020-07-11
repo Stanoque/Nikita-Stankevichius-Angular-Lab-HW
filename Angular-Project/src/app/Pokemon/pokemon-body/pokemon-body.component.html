@@ -6,7 +6,7 @@
       <span>ID: {{ pokemon.id }} </span>
       <span>DAMAGE: {{ pokemon.damage }} </span>
       <span>{{ pokemon.captured ? 'CAPTURED' : 'NOT CAPTURED'}} </span>
-      <button class="btn btn-warning" (click)="onCapture(pokemon)">{{ pokemon.captured ? 'Release' : 'Capture' }}</button>
+      <button class="btn btn-warning" (click)="capture(pokemon)">{{ pokemon.captured ? 'Release' : 'Capture' }}</button>
       <button class="btn btn-danger" (click)="onDamage(pokemon)">Damage</button>
     </li>
   </ul>
@@ -21,7 +21,7 @@
     <span class="pokemon--damage col-12 row mg-h-auto">DAMAGE: {{ pokemon.damage }} </span>
     <span class="pokemon--captured col-12 row mg-h-auto">{{ pokemon.captured ? 'CAPTURED' : 'NOT CAPTURED'}} </span>
     <div class="row col-12 justify-content-between mg-h-auto">
-      <button class="btn btn-warning col-6 capture" (click)="onCapture(pokemon)">{{ pokemon.captured ? 'Release' : 'Capture' }}</button>
+      <button class="btn btn-warning col-6 capture" (click)="capture(pokemon)">{{ pokemon.captured ? 'Release' : 'Capture' }}</button>
       <button class="btn btn-danger col-6 damage"(click)="onDamage(pokemon)">Damage</button>
     </div>
   </div>

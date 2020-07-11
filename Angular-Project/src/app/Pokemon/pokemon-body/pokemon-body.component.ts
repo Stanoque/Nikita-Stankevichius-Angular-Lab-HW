@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
 import { POKEMONS } from '../POKEMONS';
 import { Pokemon } from '../pokemon';
 import { ToggleViewService } from '../toggle-view.service';
@@ -16,24 +16,25 @@ export class PokemonBodyComponent implements OnInit {
 
   pokemons = [...POKEMONS];
   
-
+  @Output() onCapture = new EventEmitter<Pokemon>();
   
-capitalizeFirst(string: string): string {
+  capitalizeFirst(string: string): string {
 
-  let workString = string.split('');
+    let workString = string.split('');
 
-  workString[0] = workString[0].toUpperCase();
+    workString[0] = workString[0].toUpperCase();
 
-  return workString.join('');
+    return workString.join('');
   
-}
+  }
 
 
 
-  onCapture(pokemon: Pokemon): void {
-    const currentPokemon = this.pokemons[this.pokemons.indexOf(pokemon)];
-    currentPokemon.captured = !currentPokemon.captured;
-    console.log('Pokemon ' + this.capitalizeFirst(currentPokemon.name) + ' was' + (currentPokemon.captured ? ' captured' : ' released') + '.');
+  capture(pokemon: Pokemon): void {
+    this.onCapture.emit(pokemon);
+    // const currentPokemon = this.pokemons[this.pokemons.indexOf(pokemon)];
+    // currentPokemon.captured = !currentPokemon.captured;
+    // console.log('Pokemon ' + this.capitalizeFirst(currentPokemon.name) + ' was' + (currentPokemon.captured ? ' captured' : ' released') + '.');
   }
 
   onDamage(pokemon: Pokemon): void {
@@ -48,7 +49,7 @@ capitalizeFirst(string: string): string {
 
   constructor(public toggleService: ToggleViewService) { }
 
-  ngOnInit(): void {
+    ngOnInit(): void {
 
   }
 

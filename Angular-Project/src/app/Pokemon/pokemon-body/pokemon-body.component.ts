@@ -12,34 +12,19 @@ import { ToggleViewService } from '../toggle-view.service';
 
 
 
-export class PokemonBodyComponent implements OnInit {
-
-  pokemons = [...POKEMONS];
+export class PokemonBodyComponent implements OnInit { 
   
+  @Input() pokemons:Pokemon[];
   @Output() onCapture = new EventEmitter<Pokemon>();
+  @Output() onDamage = new EventEmitter<Pokemon>();
   
-  capitalizeFirst(string: string): string {
-
-    let workString = string.split('');
-
-    workString[0] = workString[0].toUpperCase();
-
-    return workString.join('');
-  
-  }
-
-
 
   capture(pokemon: Pokemon): void {
     this.onCapture.emit(pokemon);
-    // const currentPokemon = this.pokemons[this.pokemons.indexOf(pokemon)];
-    // currentPokemon.captured = !currentPokemon.captured;
-    // console.log('Pokemon ' + this.capitalizeFirst(currentPokemon.name) + ' was' + (currentPokemon.captured ? ' captured' : ' released') + '.');
   }
 
-  onDamage(pokemon: Pokemon): void {
-    const currentPokemon = this.pokemons[this.pokemons.indexOf(pokemon)];
-    currentPokemon.damage += 10;
+  damage(pokemon: Pokemon): void {
+    this.onDamage.emit(pokemon);
   }
 
   getPath(pokemon: Pokemon): string {

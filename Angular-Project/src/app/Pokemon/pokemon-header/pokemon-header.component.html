@@ -1,7 +1,7 @@
 <header class='container-fluid row justify-content-between'>
   <button (click)="toggleView()" class = 'btn btn-light col-3 button_toggle'>Change view</button>
   <form class='col-7 row justify-content-end'>
-    <input type="text" placeholder="Which pokemon do you want to find?" class = "form-control col-5">
-    <button (click)="toggleView()" type='' class = 'btn btn-light col-3 button_toggle'>Search</button>
+    <input #searchInput type="text" placeholder="Which pokemon do you want to find?" class = "form-control col-5">
+    <button (click)="search(searchInput.value)" class = 'btn btn-light col-3 button_toggle'>Search</button>
   </form>
 </header>

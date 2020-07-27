@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { ToggleViewService } from '../toggle-view.service';
 
 @Component({
@@ -9,10 +9,17 @@ import { ToggleViewService } from '../toggle-view.service';
 
 export class PokemonHeaderComponent implements OnInit {
 
+  @Output() onSearch = new EventEmitter<String>();
+
   toggleView(): void {
     this.toggleService.toggleView();
   }
 
+  search(value: string): void {
+    event.preventDefault();
+    alert(value);
+    this.onSearch.emit(value);
+  }
 
   constructor(private toggleService: ToggleViewService) { }
 

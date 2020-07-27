@@ -23,6 +23,7 @@ export class PokemonPageComponent implements OnInit {
   constructor(public pokemonsService: POKEMONSService) { }
 
   pokemons = this.pokemonsService.getAll();
+  detailedCardRendered: boolean;
 
   onActivate(childComponent) {
     childComponent.pokemons = this.pokemons;
@@ -34,6 +35,10 @@ export class PokemonPageComponent implements OnInit {
     childComponent.onDamage.subscribe((pokemon) => {
       this.onDamage(pokemon);
     })
+
+    
+    this.detailedCardRendered = !!childComponent['route'];
+
   }
 
   onCapture(pokemon: Pokemon){
@@ -47,7 +52,12 @@ export class PokemonPageComponent implements OnInit {
     currentPokemon.damage += 10;
   }
 
+  onSearch(value: string) {
+    this.pokemonsService.filter(value);
+  }
+
   ngOnInit(): void {
+    
   }
 
 }

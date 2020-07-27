@@ -5,12 +5,14 @@ import { PokemonHeaderComponent } from './pokemon-header/pokemon-header.componen
 import { PokemonBodyComponent } from './pokemon-body/pokemon-body.component';
 import { PokemonDetailedCardComponent } from './pokemon-detailed-card/pokemon-detailed-card.component';
 import { AppRoutingModule } from '../app-routing/app-routing.module';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [PokemonPageComponent, PokemonHeaderComponent, PokemonBodyComponent, PokemonDetailedCardComponent],
   imports: [
     CommonModule,
+    FormsModule,
     AppRoutingModule
   ],
   exports: [PokemonPageComponent, PokemonDetailedCardComponent],

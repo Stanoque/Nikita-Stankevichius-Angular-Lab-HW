@@ -8,25 +8,25 @@ import { POKEMONS } from './POKEMONS';
 
 export class POKEMONSService {
 
-  pokemons = [...POKEMONS];
+  pokemons = [[...POKEMONS], [...POKEMONS]];
 
-  filter(query: string): Pokemon[] {
+  filter(query: string): void {
 
-    const pokemonsToReturn = this.pokemons.filter(pokemon=>{
+    this.pokemons[1] = this.pokemons[0].filter(pokemon=>{
       if(pokemon.name.match(query)){
         return pokemon;
       }
     })
 
-    return pokemonsToReturn;
+    // return pokemonsToReturn;
   }
 
   getAll(): Pokemon[] {
-    return this.pokemons;
+    return this.pokemons[1];
   }
 
   getById(id: number): Pokemon {
-    return this.pokemons[id-1];
+    return this.pokemons[0][id-1];
   }
 
   constructor() { }

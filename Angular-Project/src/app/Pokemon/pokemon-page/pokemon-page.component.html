@@ -1,3 +1,8 @@
+<app-pokemon-header 
+  *ngIf="!detailedCardRendered"
+  (onSearch)="onSearch($event)"
+  
+  ></app-pokemon-header>
 <router-outlet
   (activate)="onActivate($event)"
 

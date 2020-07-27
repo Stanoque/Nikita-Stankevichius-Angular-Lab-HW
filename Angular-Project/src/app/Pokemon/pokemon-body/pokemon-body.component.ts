@@ -1,7 +1,7 @@
 import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
 import { Pokemon } from '../pokemon';
 import { ToggleViewService } from '../toggle-view.service';
-
+import { POKEMONSService } from '../pokemons.service';
 
 @Component({
   selector: 'app-pokemon-body',
@@ -13,10 +13,10 @@ import { ToggleViewService } from '../toggle-view.service';
 
 export class PokemonBodyComponent implements OnInit { 
   
-  @Input() pokemons:Pokemon[];
   @Output() onCapture = new EventEmitter<Pokemon>();
   @Output() onDamage = new EventEmitter<Pokemon>();
   
+  pokemons = this.pokemonsService.getAll();
 
   capture(pokemon: Pokemon): void {
     this.onCapture.emit(pokemon);
@@ -31,7 +31,11 @@ export class PokemonBodyComponent implements OnInit {
     return '../../../assets/pokemons/' + currentPokemon.id + '.png';
   }
 
-  constructor(public toggleService: ToggleViewService) { }
+  constructor(
+    public toggleService: ToggleViewService,
+    public pokemonsService: POKEMONSService
+    
+    ) { }
 
     ngOnInit(): void {
 

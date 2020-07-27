@@ -1,6 +1,9 @@
-<app-pokemon-header></app-pokemon-header>
-<app-pokemon-body 
+<router-outlet
+  (activate)="onActivate($event)"
+
+></router-outlet>
+<!-- <app-pokemon-body 
   (onCapture)="onCapture($event)"
   (onDamage)="onDamage($event)"
   [(pokemons)]="pokemons"
-  ></app-pokemon-body>
+></app-pokemon-body> -->

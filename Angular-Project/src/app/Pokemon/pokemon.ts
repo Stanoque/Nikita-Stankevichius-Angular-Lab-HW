@@ -3,4 +3,6 @@ export interface Pokemon {
   name: string,
   damage: number,   
   captured: boolean,
+  description: string,
+  date: string,
 }

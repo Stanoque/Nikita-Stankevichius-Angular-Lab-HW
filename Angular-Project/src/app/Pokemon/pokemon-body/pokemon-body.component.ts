@@ -1,5 +1,4 @@
 import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
-import { POKEMONS } from '../POKEMONS';
 import { Pokemon } from '../pokemon';
 import { ToggleViewService } from '../toggle-view.service';
 

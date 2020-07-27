@@ -24,6 +24,17 @@ export class PokemonPageComponent implements OnInit {
 
   pokemons = this.pokemonsService.getAll();
 
+  onActivate(childComponent) {
+    childComponent.pokemons = this.pokemons;
+
+    childComponent.onCapture.subscribe((pokemon) => {
+      this.onCapture(pokemon);
+    })
+
+    childComponent.onDamage.subscribe((pokemon) => {
+      this.onDamage(pokemon);
+    })
+  }
 
   onCapture(pokemon: Pokemon){
     const currentPokemon = this.pokemons[this.pokemons.indexOf(pokemon)];

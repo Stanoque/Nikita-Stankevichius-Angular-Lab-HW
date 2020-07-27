@@ -17,6 +17,10 @@
   height: auto;
 }
 
+.wrapperLink {
+  display: block;
+}
+
 .mg-h-auto {
   margin: 0 auto;
 }

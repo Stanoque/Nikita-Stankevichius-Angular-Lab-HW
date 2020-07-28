@@ -1,0 +1,112 @@
+<div class="form-group">
+  <div class="editCard--header">
+    <a class="wrapperLink" routerLink="/" routerLinkActive="active"><button (click)="toggleService.toggleHeader()" class="btn btn-block btn-secondary">Return</button></a>
+  </div>
+  <div class="editCard--body">
+      <div class="row col-12 justify-content-center">
+
+        <div class="editCard--image-container col-6 row mg-h-auto">
+          <img [src]="getPath(pokemon)" class="editCard--image">
+        </div>
+
+        <form #pokemonEdit="ngForm" (ngSubmit)="onSubmit()">
+          <div class="col-6 editCard--body--info">
+            <div class="col-12 row">
+              <label for="name"><h2>Name</h2></label>
+              <input class="form-control" type="text" [(ngModel)]="model.name" name="name"/>
+            </div>
+            <div class="col-12 row">
+              <label for="date"><h2>Date</h2></label>
+              <input  class="form-control" type="date" [(ngModel)]="model.date" name="date"/>
+            </div>
+            <div class="col-12 row">
+              <label for="damage"><h2>Damage</h2></label>
+              <input  class="form-control" type="number" [(ngModel)]="model.damage" name="damage"/>
+            </div>
+            <div class="col-12 row">
+              <button type="submit" class="btn btn-success" (click)="toggleSaveModal()">Save</button>
+              
+              <button type="button" class="btn btn-warning" (click)="toggleCancelModal()">Cancel</button>
+
+            </div>
+            
+          </div>
+
+
+
+        </form>
+      </div>   
+    </div>
+  </div>
+
+  
+  <div class="modal" tabindex="-1" role="dialog" *ngIf="modalSaveShown">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Success</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Data secured.</p>
+        </div>
+        <div class="modal-footer">
+          <a class="wrapperLink" routerLink="/details" routerLinkActive="active" [queryParams]="{ id: pokemon.id }">
+            <button type="button" class="btn btn-primary">Ok</button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" tabindex="-1" role="dialog" *ngIf="modalCancelShown">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Are you sure?</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Cancel changes?</p>
+        </div>
+        <div class="modal-footer">
+          <a class="wrapperLink" routerLink="/details" routerLinkActive="active" [queryParams]="{ id: pokemon.id }">
+            <button type="button" class="btn btn-danger">Yes</button>
+          </a>
+          <button type="button" class="btn btn-secondary" (click)="toggleCancelModal()">No</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- <div class="editCard">
+  <div class="editCard--header">
+    <a class="wrapperLink" routerLink="/" routerLinkActive="active"><button class="btn btn-block btn-secondary">Return</button></a>
+  </div>
+  <div class="editCard--body">
+      <div class="row col-12 justify-content-center">
+
+        <div class="editCard--image-container col-6 row mg-h-auto">
+          <img [src]="getPath(pokemon)" class="editCard--image">
+        </div>
+
+        <div class="col-6 editCard--body--info">
+          <h2 class="editCard--name col-12 row mg-h-auto">{{ pokemon.name | uppercase }} </h2>
+          <h6 class="editCard--date">{{ pokemon.date }}</h6>
+          <p class="editCard--description">{{ pokemon.description }}</p>
+
+          <span class="editCard--id col-12 row mg-h-auto">ID: {{ pokemon.id }} </span>
+          <span class="editCard--damage col-12 row mg-h-auto">DAMAGE: {{ pokemon.damage }} </span>
+          <span class="editCard--captured col-12 row mg-h-auto">{{ pokemon.captured ? 'CAPTURED' : 'NOT CAPTURED'}} </span>
+        </div>
+      </div>   
+      <div class="row col-12 justify-content-around mg-h-auto">
+        <button class="btn btn-warning col-4 capture" (click)="capture(pokemon)">{{ pokemon.captured ? 'Release' : 'Capture' }}</button>
+        <button class="btn btn-danger col-4 damage"(click)="damage(pokemon)">Damage</button>
+      </div>
+    </div>
+  </div> -->

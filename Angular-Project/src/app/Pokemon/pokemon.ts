@@ -4,5 +4,5 @@ export interface Pokemon {
   damage: number,   
   captured: boolean,
   description: string,
-  date: string,
+  date: Date,
 }

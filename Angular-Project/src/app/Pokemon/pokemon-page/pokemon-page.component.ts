@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Pokemon } from '../pokemon';
 import { POKEMONSService } from '../pokemons.service';
-
+import { ToggleViewService } from '../toggle-view.service';
 
 @Component({
   selector: 'app-pokemon-page',
@@ -20,7 +20,10 @@ export class PokemonPageComponent implements OnInit {
   
   }
 
-  constructor(public pokemonsService: POKEMONSService) { }
+  constructor(
+    public toggleService: ToggleViewService,
+    public pokemonsService: POKEMONSService
+    ) { }
 
   pokemons = this.pokemonsService.getAll();
   detailedCardRendered: boolean;
@@ -36,8 +39,8 @@ export class PokemonPageComponent implements OnInit {
       this.onDamage(pokemon);
     })
 
-    
-    this.detailedCardRendered = !!childComponent['route'];
+  
+    this.detailedCardRendered = childComponent['type'] !== 'list';
 
   }
 

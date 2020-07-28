@@ -1,5 +1,5 @@
 <app-pokemon-header 
-  *ngIf="!detailedCardRendered"
+  *ngIf="toggleService.headerShown"
   (onSearch)="onSearch($event)"
   
   ></app-pokemon-header>

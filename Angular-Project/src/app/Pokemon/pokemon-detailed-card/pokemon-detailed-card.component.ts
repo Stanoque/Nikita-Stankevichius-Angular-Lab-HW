@@ -1,6 +1,7 @@
 import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { Pokemon } from '../pokemon';
+import { ToggleViewService } from '../toggle-view.service';
 
 @Component({
   selector: 'app-pokemon-detailed-card',
@@ -15,6 +16,7 @@ export class PokemonDetailedCardComponent implements OnInit {
   
   id: number;
   pokemon: Pokemon;
+  type: string = 'card';
 
   capture(pokemon: Pokemon): void {
     this.onCapture.emit(pokemon);
@@ -33,6 +35,7 @@ export class PokemonDetailedCardComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
+    public toggleService: ToggleViewService,
   ) {}
   
 

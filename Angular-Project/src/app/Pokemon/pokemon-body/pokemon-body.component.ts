@@ -17,6 +17,7 @@ export class PokemonBodyComponent implements OnInit {
   @Output() onDamage = new EventEmitter<Pokemon>();
   
   pokemons = this.pokemonsService.getAll();
+  type: string = 'list';
 
   capture(pokemon: Pokemon): void {
     this.onCapture.emit(pokemon);

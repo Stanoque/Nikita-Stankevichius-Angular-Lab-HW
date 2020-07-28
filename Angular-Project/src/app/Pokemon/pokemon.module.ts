@@ -6,15 +6,16 @@ import { PokemonBodyComponent } from './pokemon-body/pokemon-body.component';
 import { PokemonDetailedCardComponent } from './pokemon-detailed-card/pokemon-detailed-card.component';
 import { AppRoutingModule } from '../app-routing/app-routing.module';
 import { FormsModule } from '@angular/forms';
+import { PokemonEditComponent } from './pokemon-edit/pokemon-edit.component';
 
 
 @NgModule({
-  declarations: [PokemonPageComponent, PokemonHeaderComponent, PokemonBodyComponent, PokemonDetailedCardComponent],
+  declarations: [PokemonPageComponent, PokemonHeaderComponent, PokemonBodyComponent, PokemonDetailedCardComponent, PokemonEditComponent],
   imports: [
     CommonModule,
     FormsModule,
     AppRoutingModule
   ],
-  exports: [PokemonPageComponent, PokemonDetailedCardComponent],
+  exports: [PokemonPageComponent, PokemonDetailedCardComponent, PokemonEditComponent],
 })
 export class PokemonModule { }

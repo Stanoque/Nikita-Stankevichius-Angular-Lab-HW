@@ -8,7 +8,7 @@ export const POKEMONS: Pokemon[] =
     "captured": false,
     "damage": 0,
     "description": "Lorem ipsum dolor sit amet",
-    "date": "27.07.2020"
+    "date": new Date(),
   },
   {
     "name": "ivysaur",
@@ -16,7 +16,7 @@ export const POKEMONS: Pokemon[] =
     "captured": false,
     "damage": 0,
     "description": "Lorem ipsum dolor sit amet",
-    "date": "27.07.2020"
+    "date": new Date(),
   },
   {
     "name": "venusaur",
@@ -24,7 +24,7 @@ export const POKEMONS: Pokemon[] =
     "captured": false,
     "damage": 0,
     "description": "Lorem ipsum dolor sit amet",
-    "date": "27.07.2020"
+    "date": new Date(),
   },
   {
     "name": "charmander",
@@ -32,7 +32,7 @@ export const POKEMONS: Pokemon[] =
     "captured": false,
     "damage": 0,
     "description": "Lorem ipsum dolor sit amet",
-    "date": "27.07.2020"
+    "date": new Date(),
   },
   {
     "name": "charmeleon",
@@ -40,7 +40,7 @@ export const POKEMONS: Pokemon[] =
     "captured": false,
     "damage": 0,
     "description": "Lorem ipsum dolor sit amet",
-    "date": "27.07.2020"
+    "date": new Date(),
   },
   {
     "name": "charizard",
@@ -48,7 +48,7 @@ export const POKEMONS: Pokemon[] =
     "captured": false,
     "damage": 0,
     "description": "Lorem ipsum dolor sit amet",
-    "date": "27.07.2020"
+    "date": new Date(),
   },
   {
     "name": "squirtle",
@@ -56,7 +56,7 @@ export const POKEMONS: Pokemon[] =
     "captured": false,
     "damage": 0,
     "description": "Lorem ipsum dolor sit amet",
-    "date": "27.07.2020"
+    "date": new Date(),
   },
   {
     "name": "wartortle",
@@ -64,7 +64,7 @@ export const POKEMONS: Pokemon[] =
     "captured": false,
     "damage": 0,
     "description": "Lorem ipsum dolor sit amet",
-    "date": "27.07.2020"
+    "date": new Date(),
   },
   {
     "name": "blastoise",
@@ -72,7 +72,7 @@ export const POKEMONS: Pokemon[] =
     "captured": false,
     "damage": 0,
     "description": "Lorem ipsum dolor sit amet",
-    "date": "27.07.2020"
+    "date": new Date(),
   },
   {
     "name": "caterpie",
@@ -80,7 +80,7 @@ export const POKEMONS: Pokemon[] =
     "captured": false,
     "damage": 0,
     "description": "Lorem ipsum dolor sit amet",
-    "date": "27.07.2020"
+    "date": new Date(),
   },
   {
     "name": "metapod",
@@ -88,7 +88,7 @@ export const POKEMONS: Pokemon[] =
     "captured": false,
     "damage": 0,
     "description": "Lorem ipsum dolor sit amet",
-    "date": "27.07.2020"
+    "date": new Date(),
   },
   {
     "name": "butterfree",
@@ -96,6 +96,6 @@ export const POKEMONS: Pokemon[] =
     "captured": false,
     "damage": 0,
     "description": "Lorem ipsum dolor sit amet",
-    "date": "27.07.2020"
+    "date": new Date(),
   },
 ]

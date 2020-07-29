@@ -39,7 +39,7 @@ export class PokemonBodyComponent implements OnInit {
     ) { }
 
     ngOnInit(): void {
-
+      this.toggleService.showHeader();
   }
 
 }

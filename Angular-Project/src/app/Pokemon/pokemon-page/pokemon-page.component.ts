@@ -31,13 +31,17 @@ export class PokemonPageComponent implements OnInit {
   onActivate(childComponent) {
     childComponent.pokemons = this.pokemons;
 
-    childComponent.onCapture.subscribe((pokemon) => {
-      this.onCapture(pokemon);
-    })
+    if(childComponent.onCapture) {
+      childComponent.onCapture.subscribe((pokemon) => {
+        this.onCapture(pokemon);
+      })
+    }
 
-    childComponent.onDamage.subscribe((pokemon) => {
-      this.onDamage(pokemon);
-    })
+    if(childComponent.onDamage) {
+        childComponent.onDamage.subscribe((pokemon) => {
+        this.onDamage(pokemon);
+      })
+    }
 
   
     this.detailedCardRendered = childComponent['type'] !== 'list';

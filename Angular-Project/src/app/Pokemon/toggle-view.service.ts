@@ -12,8 +12,12 @@ export class ToggleViewService {
     this.cardsView = !this.cardsView;
   }
 
-  toggleHeader(): void {
-    this.headerShown = !this.headerShown;
+  hideHeader(): void {
+    this.headerShown = false;
+  }
+
+  showHeader(): void {
+    this.headerShown = true;
   }
 
   getView(): boolean {

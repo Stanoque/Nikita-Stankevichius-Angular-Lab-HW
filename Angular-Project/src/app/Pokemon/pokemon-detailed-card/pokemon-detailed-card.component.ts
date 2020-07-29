@@ -44,6 +44,7 @@ export class PokemonDetailedCardComponent implements OnInit {
     this.id = params['id'];
   });
   this.pokemon = this.pokemons[this.id-1];
+  this.toggleService.hideHeader();
 }
 
 }

@@ -3,6 +3,8 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { PokemonClass } from '../pokemon.formClass';
 import { Pokemon } from '../pokemon';
 import { ToggleViewService } from '../toggle-view.service'; 
+import { Observable } from 'rxjs';
+import { DialogService } from '../../dialog.service';
 
 @Component({
   selector: 'app-pokemon-edit',
@@ -22,15 +24,27 @@ export class PokemonEditComponent{
   model = new PokemonClass(-1, 'Pokemon', 0, false, new Date());
   type: string = 'card';
 
+
   constructor(
     private route: ActivatedRoute,
     public toggleService: ToggleViewService,
+    public dialogService: DialogService,
   ) {};
 
   getPath(pokemon: Pokemon): string {
     const currentPokemon = this.pokemons[this.pokemons.indexOf(pokemon)];
     return '../../../assets/pokemons/' + currentPokemon.id + '.png';
   }
+
+  
+  canDeactivate(): Observable<boolean> | boolean {
+
+    if(!this.submitted){
+      return this.dialogService.confirm('Are you sure?');
+    } 
+    return true;
+   
+  }	
 
   toggleSaveModal() {
     this.modalSaveShown = !this.modalSaveShown;
@@ -55,5 +69,6 @@ export class PokemonEditComponent{
     this.model.id = this.pokemon.id;
     this.model.date = this.pokemon.date;
     this.model.captured = this.pokemon.captured;
+    this.toggleService.hideHeader();
   }
 }

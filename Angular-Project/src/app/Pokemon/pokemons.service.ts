@@ -18,7 +18,6 @@ export class POKEMONSService {
       }
     })
 
-    // return pokemonsToReturn;
   }
 
   getAll(): Pokemon[] {

@@ -31,11 +31,6 @@ export class PokemonEditComponent{
     public dialogService: DialogService,
   ) {};
 
-  getPath(pokemon: Pokemon): string {
-    const currentPokemon = this.pokemons[this.pokemons.indexOf(pokemon)];
-    return '../../../assets/pokemons/' + currentPokemon.id + '.png';
-  }
-
   
   canDeactivate(): Observable<boolean> | boolean {
 

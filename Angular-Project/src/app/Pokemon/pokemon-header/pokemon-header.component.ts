@@ -17,7 +17,6 @@ export class PokemonHeaderComponent implements OnInit {
 
   search(value: string): void {
     event.preventDefault();
-    alert(value);
     this.onSearch.emit(value);
   }
 

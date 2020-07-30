@@ -23,13 +23,7 @@ export class PokemonDetailedCardComponent implements OnInit {
   damage(pokemon: Pokemon): void {
     this.onDamage.emit(pokemon);
   }
-
-  getPath(pokemon: Pokemon): string {
-    const currentPokemon = this.pokemons[this.pokemons.indexOf(pokemon)];
-    return '../../../assets/pokemons/' + currentPokemon.id + '.png';
-  }
-
-
+  
 
   constructor(
     private route: ActivatedRoute,

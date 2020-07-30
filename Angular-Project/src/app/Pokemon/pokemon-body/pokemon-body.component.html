@@ -16,7 +16,7 @@
   <div class="pokemon--card col-3" *ngFor="let pokemon of this.pokemonsService.getAll()" [ngClass]="pokemon.damage > 50 ? 'card_red' : ''">
     <span class="pokemon--name col-12 row mg-h-auto">{{ pokemon.name | uppercase }} </span>
     <div class="pokemon--image-container col-12 row mg-h-auto">
-      <img [src]="getPath(pokemon)" class="pokemon--image">
+      <img src="{{'../../../assets/pokemons/'+pokemon.id+'.png'}}" class="pokemon--image">
     </div>
     <span class="pokemon--id col-12 row mg-h-auto">ID: {{ pokemon.id }} </span>
     <span class="pokemon--damage col-12 row mg-h-auto">DAMAGE: {{ pokemon.damage }} </span>

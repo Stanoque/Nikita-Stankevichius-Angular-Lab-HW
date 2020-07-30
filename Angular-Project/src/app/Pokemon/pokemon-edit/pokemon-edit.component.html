@@ -1,0 +1,62 @@
+<div class="form-group">
+
+  <div class="editCard--body">
+      <div class="row col-12 justify-content-center">
+
+        <div class="editCard--image-container col-6 row mg-h-auto">
+          <img src="{{'../../../assets/pokemons/'+pokemon.id+'.png'}}" class="editCard--image">
+        </div>
+
+        <form #pokemonEdit="ngForm" (ngSubmit)="onSubmit()">
+          <div class="col-6 editCard--body--info">
+            <div class="col-12 row">
+              <label for="name"><h2>Name</h2></label>
+              <input class="form-control" type="text" [(ngModel)]="model.name" name="name"/>
+            </div>
+            <div class="col-12 row">
+              <label for="date"><h2>Date</h2></label>
+              <input  class="form-control" type="date" [(ngModel)]="model.date" name="date"/>
+            </div>
+            <div class="col-12 row">
+              <label for="damage"><h2>Damage</h2></label>
+              <input  class="form-control" type="number" [(ngModel)]="model.damage" name="damage"/>
+            </div>
+            <div class="col-12 row">
+              <button type="submit" class="btn btn-success" (click)="toggleSaveModal()">Save</button>
+              
+              <a class="wrapperLink" routerLink="/details" routerLinkActive="active" [queryParams]="{ id: pokemon.id }">
+                <button type="button" class="btn btn-warning">Cancel</button>
+              </a>
+
+            </div>
+            
+          </div>
+
+
+
+        </form>
+      </div>   
+    </div>
+  </div>
+
+  
+  <div class="modal" tabindex="-1" role="dialog" *ngIf="modalSaveShown">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Success</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Data secured.</p>
+        </div>
+        <div class="modal-footer">
+          <a class="wrapperLink" routerLink="/details" routerLinkActive="active" [queryParams]="{ id: pokemon.id }">
+            <button type="button" class="btn btn-primary">Ok</button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>

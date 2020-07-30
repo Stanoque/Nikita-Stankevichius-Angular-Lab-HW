@@ -26,11 +26,6 @@ export class PokemonBodyComponent implements OnInit {
     this.onDamage.emit(pokemon);
   }
 
-  getPath(pokemon: Pokemon): string {
-    const currentPokemon = this.pokemons[this.pokemons.indexOf(pokemon)];
-    return '../../../assets/pokemons/' + currentPokemon.id + '.png';
-  }
-
   constructor(
     public toggleService: ToggleViewService,
     public pokemonsService: POKEMONSService

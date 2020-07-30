@@ -41,11 +41,6 @@ capitalizeFirst(string: string): string {
     currentPokemon.damage += 10;
   }
 
-  getPath(pokemon: Pokemon): string {
-    const currentPokemon = this.pokemons[this.pokemons.indexOf(pokemon)];
-    return '../../../assets/pokemons/' + currentPokemon.id + '.png';
-  }
-
   constructor(public toggleService: ToggleViewService) { }
 
   ngOnInit(): void {

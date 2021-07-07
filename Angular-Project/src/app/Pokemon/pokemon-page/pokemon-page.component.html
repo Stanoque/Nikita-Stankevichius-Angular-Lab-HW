@@ -1,0 +1,14 @@
+<app-pokemon-header 
+  *ngIf="!detailedCardRendered"
+  (onSearch)="onSearch($event)"
+  
+  ></app-pokemon-header>
+<router-outlet
+  (activate)="onActivate($event)"
+
+></router-outlet>
+<!-- <app-pokemon-body 
+  (onCapture)="onCapture($event)"
+  (onDamage)="onDamage($event)"
+  [(pokemons)]="pokemons"
+></app-pokemon-body> -->

@@ -1,0 +1,31 @@
+<h2 class="col-12 bg-h-auto d-print-table-row">Pokemons</h2>
+<div *ngIf="!toggleService.cardsView">
+  <ul class="heroes">
+    <li *ngFor="let pokemon of pokemons">
+      <span>{{ pokemon.name | uppercase }} </span>
+      <span>ID: {{ pokemon.id }} </span>
+      <span>DAMAGE: {{ pokemon.damage }} </span>
+      <span>{{ pokemon.captured ? 'CAPTURED' : 'NOT CAPTURED'}} </span>
+      <button class="btn btn-warning" (click)="capture(pokemon)">{{ pokemon.captured ? 'Release' : 'Capture' }}</button>
+      <button class="btn btn-danger" (click)="damage(pokemon)">Damage</button>
+      <a class="wrapperLink" routerLink="/details" routerLinkActive="active"><button class="btn btn-primary edit">Edit</button></a>
+    </li>
+  </ul>
+</div>
+<div *ngIf="toggleService.cardsView" class="container-fluid row justify-content-around">
+  <div class="pokemon--card col-3" *ngFor="let pokemon of this.pokemonsService.getAll()" [ngClass]="pokemon.damage > 50 ? 'card_red' : ''">
+    <span class="pokemon--name col-12 row mg-h-auto">{{ pokemon.name | uppercase }} </span>
+    <div class="pokemon--image-container col-12 row mg-h-auto">
+      <img src="{{'../../../assets/pokemons/'+pokemon.id+'.png'}}" class="pokemon--image">
+    </div>
+    <span class="pokemon--id col-12 row mg-h-auto">ID: {{ pokemon.id }} </span>
+    <span class="pokemon--damage col-12 row mg-h-auto">DAMAGE: {{ pokemon.damage }} </span>
+    <span class="pokemon--captured col-12 row mg-h-auto">{{ pokemon.captured ? 'CAPTURED' : 'NOT CAPTURED'}} </span>
+    <div class="row col-12 justify-content-between mg-h-auto">
+      <button class="btn btn-warning col-4 capture" (click)="capture(pokemon)">{{ pokemon.captured ? 'Release' : 'Capture' }}</button>
+      <button class="btn btn-danger col-4 damage"(click)="damage(pokemon)">Damage</button>
+      <a class="col-4 wrapperLink" routerLink="/details" routerLinkActive="active" [queryParams]="{ id: pokemon.id }"><button class="btn btn-primary edit">Edit</button></a>
+    </div>
+  </div>
+
+</div>
